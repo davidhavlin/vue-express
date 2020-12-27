@@ -1,0 +1,15 @@
+{
+  "name": "vue-express",
+  "version": "1.0.0",
+  "description": "Skusam si express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "author": "David Havlin",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
