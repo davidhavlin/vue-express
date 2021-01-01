@@ -17,6 +17,7 @@ router.post("/", async (req, res) => {
 		author: req.body.author,
 		text: req.body.text,
 		created_at: new Date(),
+		updated_at: null,
 	});
 	res.status(201).send();
 });
