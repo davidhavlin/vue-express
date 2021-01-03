@@ -10,6 +10,8 @@ app.use(express.json());
 app.use(cors()); // na cors blbosti z chromu
 
 const posts = require("./routes/api/posts");
+const users = require("./routes/users");
+
 app.use("/api/posts", posts);
 
 //PRODUCTION

@@ -4,13 +4,13 @@ const dotenv = require("dotenv").config();
 
 const router = express.Router();
 
-// GET POSTS
+// GET
 router.get("/", async (req, res) => {
 	const posts = await loadPostsCollection();
 	res.send(await posts.find({}).toArray());
 });
 
-// ADD POST
+// ADD USER
 router.post("/", async (req, res) => {
 	const posts = await loadPostsCollection();
 	await posts.insertOne({
@@ -23,14 +23,14 @@ router.post("/", async (req, res) => {
 	res.status(201).send();
 });
 
-// DELETE POST
+// DELETE USER
 router.delete("/:id", async (req, res) => {
 	const posts = await loadPostsCollection();
 	await posts.deleteOne({ _id: new mongodb.ObjectID(req.params.id) });
 	res.status(200).send();
 });
 
-// UPDATE POST
+// UPDATE USER
 router.put("/:id", async (req, res) => {
 	const posts = await loadPostsCollection();
 	await posts.updateOne(
@@ -46,12 +46,12 @@ router.put("/:id", async (req, res) => {
 	res.status(200).send();
 });
 
-async function loadPostsCollection() {
+async function loadUsersCollection() {
 	const client = await mongodb.MongoClient.connect(process.env.DB_CONNECT, {
 		useNewUrlParser: true,
 	});
 
-	return client.db("vue-express").collection("posts");
+	return client.db("vue-express").collection("users");
 }
 
 module.exports = router;
